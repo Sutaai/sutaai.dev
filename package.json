@@ -1,0 +1,23 @@
+{
+  "name": "sutaai.dev",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "fmt": "prettier --write ."
+  },
+  "devDependencies": {
+    "@unocss/preset-attributify": "^0.61.5",
+    "@unocss/preset-uno": "^0.61.5",
+    "prettier": "^3.3.3",
+    "typescript": "^5.2.2",
+    "unocss": "^0.61.5",
+    "vite": "^5.3.4"
+  },
+  "dependencies": {
+    "@unocss/preset-web-fonts": "^0.61.5"
+  }
+}

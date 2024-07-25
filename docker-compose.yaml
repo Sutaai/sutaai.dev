@@ -1,0 +1,7 @@
+services:
+  web:
+    build: .
+    container_name: sutaai.dev
+    ports:
+      - "59847:80"
+    restart: unless-stopped
