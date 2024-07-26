@@ -1,7 +1,33 @@
 services:
   web:
     build: .
+    cap_add:
+      - NET_ADMIN
     container_name: sutaai.dev
+    restart: unless-stopped
+
     ports:
       - "59847:80"
-    restart: unless-stopped
+      - "59848:443"
+      - "59848:443/udp"
+
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+
+    healthcheck:
+      test:
+        - CMD
+        - "wget"
+        - "--server-response"
+        - "--spider"
+        - "http://localhost"
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+      start_interval: 5s
+
+volumes:
+  caddy_data:
+  caddy_config:

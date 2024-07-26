@@ -13,6 +13,7 @@ export default defineConfig({
       fonts: {
         mono: ["JetBrains Mono"],
       },
+      provider: "bunny",
     }),
   ],
 });

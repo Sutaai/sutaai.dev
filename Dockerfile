@@ -1,12 +1,18 @@
 FROM node:latest AS builder
 
 WORKDIR /app
-COPY . /app
 
 RUN corepack enable
+
+COPY package.json /app
+
 RUN yarn install
+
+COPY . /app
+
 RUN yarn build
 
-FROM nginx:alpine AS runner
+FROM caddy:alpine AS runner
 
-COPY --from=builder /app/dist /usr/share/nginx/html
+COPY Caddyfile /etc/caddy/Caddyfile
+COPY --from=builder /app/dist /srv/sutaai.dev

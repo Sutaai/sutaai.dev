@@ -1,0 +1,10 @@
+{
+	admin off
+	email sutaai@proton.me
+}
+
+localhost {
+	root * /srv/sutaai.dev/
+
+	file_server
+}
