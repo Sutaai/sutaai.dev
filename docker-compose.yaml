@@ -7,9 +7,7 @@ services:
     restart: unless-stopped
 
     ports:
-      - "59847:80"
-      - "59848:443"
-      - "59848:443/udp"
+      - "59854:80"
 
     volumes:
       - caddy_data:/data
@@ -21,7 +19,9 @@ services:
         - "wget"
         - "--server-response"
         - "--spider"
-        - "http://localhost"
+        - "--tries"
+        - "1"
+        - "http://localhost:80"
       interval: 30s
       timeout: 10s
       retries: 3
