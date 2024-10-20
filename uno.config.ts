@@ -16,4 +16,7 @@ export default defineConfig({
       provider: "bunny",
     }),
   ],
+  shortcuts: {
+    "link": "underline hover:no-underline hover:p-2 hover:text-black hover:bg-white",
+  }
 });
